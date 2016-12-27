@@ -26,12 +26,11 @@ fn main()
 
         /*Cast propre de String à u32 => suppression des espaces et des \n, puis conversion.
         Si c'est bien un nombre, pas de réalise la conversion, sinon, skip le reste de l'itération*/
-        let guess: u32 = guess.trim()
-                              .parse()
+        let guess: u32 = match guess.trim().parse()
         {
             Ok(num) => num,
             Err(_) => continue,
-        }
+        };
         println!("You guessed: {}", guess);
 
         match guess.cmp(&secret_number)
